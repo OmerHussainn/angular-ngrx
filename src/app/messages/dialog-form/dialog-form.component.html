@@ -1,0 +1,21 @@
+<div mat-dialog-title class="dialog-title">
+    <h2>Add Message</h2>
+    <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+        <mat-icon (click)="openSnackBar(discarded,cancel)">close</mat-icon>
+    </button>
+</div>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input required (keyup)="onKeyName($event)" matInput placeholder="Enter Name" value="">
+
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>Message</mat-label>
+        <textarea required (keyup)="onKeyTextarea($event)" matInput placeholder="Ex. It makes me feel..."></textarea>
+    </mat-form-field>
+
+</form>
+<mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="[name,message]" (click)="openSnackBar(messageAdded,cancel)" cdkFocusInitial [disabled]="isDisabled">Submit</button>
+</mat-dialog-actions>
