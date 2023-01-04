@@ -19,7 +19,7 @@ export interface PeriodicElement {
 })
 export class MessagePageComponent implements OnInit {
   
-  
+  loading:boolean=true
   displayedColumns: string[] = ['Id', 'Name', 'Message','Date'];
   userMessage: any = [];
   constructor(
@@ -52,6 +52,7 @@ export class MessagePageComponent implements OnInit {
     this.store.dispatch(Fetch_MESSAGES());
     this.store.pipe(select(getMessages)).subscribe((res) => {
       this.messageList = res.messageList;
+      this.loading=res.loading
     });
   }
   addMessage(message: Message) {

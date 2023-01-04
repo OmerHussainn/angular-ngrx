@@ -58,7 +58,7 @@ export const reducer = createReducer(
 
   on(
     MessageActions.ADD_MESSAGE_SUCCESS,
-    (state, { message }) => (
+    (state) => (
       console.log('Add Message Success reducer called'),
       {
         ...state,
