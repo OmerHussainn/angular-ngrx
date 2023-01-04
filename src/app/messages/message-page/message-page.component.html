@@ -1,13 +1,13 @@
 <button mat-stroked-button color="primary" (click)="openDialog()" class="form-button">
     Add Message
 </button>
-<div class="spinner" *ngIf="!messageList">
+<div class="center" *ngIf="loading">
     <mat-spinner></mat-spinner>
 </div>
-<div class="spinner" *ngIf="loading">
+<div class="center" *ngIf="messageList?.length==0">
     <span><b>No Data Found</b></span>
 </div>
-<table mat-table [dataSource]="messageList" class="mat-elevation-z8">
+<table mat-table [dataSource]="messageList" class="mat-elevation-z8" *ngIf="messageList?.length>0">
 
     <ng-container matColumnDef="Id">
         <th mat-header-cell *matHeaderCellDef> Id </th>
